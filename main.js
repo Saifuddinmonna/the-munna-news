@@ -111,7 +111,8 @@ const displayNews = (news) => {
 	} else {
 		nonews.classList.add("d-none");
 	}
-
+	const itemsnuberspan = document.getElementById("itemsnumber");
+	itemsnuberspan.innerHTML = divnumbers;
 	// no news found warning end here
 
 
@@ -150,13 +151,15 @@ const displayCategory = (categories) => {
 		liTag.classList.add("nav-item", "mx-3", "active", "btn-primary");
 		liTag.innerHTML = `
                 
-                <a onclick="loadNews('${category.category_id}'),spinertoggle(true)" class="nav-link btn btn-outline-primary " aria-current="page" href="#">${category.category_name}</a>
+                <a id="category-name-id" onclick="loadNews('${category.category_id}'),spinertoggle(true) , categorynamerload( '${category.category_name}')" class="nav-link btn btn-outline-primary " aria-current="page" href="#">${category.category_name}</a>
                 `;
 
 		categoriesul.appendChild(liTag);
 		
 	});
 	
+	
+
 };
 	
 
@@ -222,3 +225,8 @@ const spinertoggle = (lodding) => {
 // spinertoggler start here
 
 
+const categorynamerload = (categoryname) => {
+	const categoryspan = document.getElementById("categoryname-id");
+	categoryspan.innerHTML = categoryname;
+	console.log(ccategorynameidtext);
+};
