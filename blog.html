@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Blog</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="main.css" />
+		<style>
+			div{
+        background-color: rgba(41, 63, 28, 0.021);
+	padding: 20px;
+	border-radius: 12px;
+}
+		</style>
+	</head>
+	<body>
+		<header class="container">
+			<!-- pic and news portal start here  -->
+			<nav class="navbar navbar-light bg-light mx-3">
+				<div class="container-fluid">
+					<a href="index.html" class="navbar-brand btn mx-3"
+						> Munna Blog 
+					</a>
+					<span class="mx-3 text-start"></span>
+					<a class="navbar-brand"
+						><img
+							class="rounded-circle"
+							id="imageid"
+							src="images/pic for git hub.jpg"
+							alt=""
+					/></a>
+					<form class="d-flex">
+						<button class="btn btn-outline-primary mx-3">
+							<a href="index.html">News</a>
+						</button>
+						<button class="btn btn-outline-primary mx-3">
+							<a class="text-decoration-none" href="blog.html">
+								Blog</a
+							>
+						</button>
+					</form>
+				</div>
+			</nav>
+
+			<!-- pic and news portal end here  -->
+		</header>
+		<main class="container">
+			<section class="ansering-section m-3 my-4">
+
+				<div class="ans-1 my-5 bgcolor ">
+					<h2>1 .What is difference between var, let and const?</h2>
+				<p>
+					The var keyword is the oldest way of declaring variables in
+					JavaScript and is supported by all browsers. The let and
+					const keywords are newer additions to the language and are
+					not supported by older browsers.
+				</p>
+				<p>
+					If you need to support older browsers, you can use var
+					instead of let or const. If you don’t need to support older
+					browsers, you can use let or const. If you want your
+					variable to be immutable, use const.
+				</p>
+				<p>
+					Here are some examples: ADVERTISEMENT Ads var x = 1; let y =
+					2; const z = 3; x = 4; //OK y = 5; //OK z = 6; //Error 1 2 3
+					4 5 6 7 var x = 1; let y = 2; const z = 3; x = 4; //OK y =
+					5; //OK z = 6; //Error As you can see, var and let variables
+					can be reassigned, but const variables can not.
+				</p>
+				<p>
+					Another difference between var and let/const is that var
+					variables are function-scoped, while let and const variables
+					are block-scoped.
+				</p>
+				<p>
+					This means that var variables are only available within the
+					function they were declared in. For example: function foo()
+					{ var x = 1; } foo(); console.log(x); // ReferenceError: x
+					is not defined 1 2 3 4 5 6 function foo() { var x = 1; }
+					foo(); console.log(x); // ReferenceError: x is not defined
+				</p>
+				<p>
+					On the other hand, let and const variables are only
+					available within the block they were declared in. For
+					example: function foo() { let y = 2; const z = 3; } foo();
+					console.log(y); // ReferenceError: y is not defined
+					console.log(z); // ReferenceError: z is not defined 1 2 3 4
+					5 6 7 8 function foo() { let y = 2; const z = 3; } foo();
+					console.log(y); // ReferenceError: y is not defined
+					console.log(z); // ReferenceError: z is not defined
+				</p>
+				<p>
+					So, to sum up, the main differences between var, let and
+					const are: var is function-scoped while let and const are
+					block-scoped. var variables can be reassigned while let and
+					const variables can not. var variables are declared using
+					the var keyword while let and const variables are declared
+					using the let and const keywords respectively. const
+					variables are immutable while let and var variables are not.
+				</p>
+				
+				</div>
+				<!-- question 2 from here  -->
+
+				<div class="ans-2 mb-4 bgcolor">
+					<h2>  
+						2 .Difference Between Arrow Function and Regular Function?
+					</h2>	
+
+					<p>
+						When and when not to use the arrow function
+
+						k in a similar manner but there are some differences between them. Let's see the differences below: -	
+					</p>
+					<p>
+						Syntax
+						Arguments binding
+						Use of this keyword
+						Using a new keyword	
+					</p>
+					<p>
+						1) Syntax:
+						A programmer can get the same result as regular functions by writing a few lines of code using arrow functions.
+
+						Curly brackets are not required if only one expression is present.
+
+						// Regular function ES5:
+						var add = function(a, b) {  return a + b;};
+						// Arrow function ES6
+						let add = (a, b) => { return a + b};
+						//or
+						let add = (a, b) => a + b;	
+					</p>
+					<p>
+						<h4>
+							2) Arguments binding
+						</h4>	
+						arguments object inside the regular functions contains the list of arguments.
+
+						// Object with Regular function
+						let showData = {
+						showArg: function(){
+						console.log(arguments);
+						}  
+						}
+						showData.showArg(1,2,3); // output {0:1,1:2,2:3}
+					</p>
+					<p>
+						The arrow function, on the opposite, doesn’t define arguments i.e. they do not have arguments binding.
+
+						// Object with Arrow function
+						let showData = {
+						showArg: ()=>console.log(arguments);
+						}
+						showData.showArg(1,2,3); 
+						// Uncaught ReferenceError: arguments is not defined
+					</p>
+					<p>
+						But you can easily access the arrow function arguments using a rest parameter ...args.
+
+						// using rest parameters
+						let showData = {
+						showArg: (...args)=>console.log(args);
+						}
+						myFunc.showArgs(1, 2, 3, 4); // [1, 2, 3, 4]	
+					</p>
+
+
+					<p>
+						<h4>
+
+							3) Use of this keyword
+						</h4>
+						
+					</p>
+					<p>
+						Inside of a regular JavaScript function, this value is dynamic. The dynamic context means that the value of this depends on how the function is invoked.
+						let name ={ 
+						fullName:'abc',
+						printInRegular: function(){
+							console.log(`My Name is ${this.fullName}`);
+						},       
+						printInArrow:()=>console.log(`My Name is ${this.fullName}`)
+						} 
+						name.printInRegular();   // My Name is abc
+						name.printInArrow();     // My Name is undefined
+
+					</p>
+					<p>
+						The behavior of this inside of an arrow, function differs considerably from the regular function’s this behavior as an arrow function does not have its own “this” keyword.
+
+					</p>
+					<p>
+						The value of this inside an arrow function remains the same throughout the lifecycle of the function and is always bound to the value of this in the closest non-arrow parent function which means No matter how or where being executed, this value inside of an arrow function always equals this value from the outer function.
+
+						const myObject = {
+						myMethod(items) {
+						console.log(this); // logs myObject 
+						const callback = () => {
+						console.log(this); // this takes value from myMethod(outer func)    
+						};
+						items.forEach(callback);
+						}
+						};
+
+						myObject.myMethod([1, 2, 3]);
+
+					</p>
+					<p>
+						<h4>
+							4) Using a new keyword
+
+						</h4>
+
+					</p>
+					<p>
+
+						Regular functions are constructible and callable. They can be called using the new keyword.
+
+
+					</p>
+					<p>
+						But, the arrow functions are only callable and not constructible, i.e., arrow functions can never be used as constructor functions.
+
+						const Car = (color) => {
+						this.color = color;
+						};
+
+						const redCar = new Car('red'); // TypeError: Car is not a constructor
+
+
+					</p>
+					<p>
+						<h3>
+							Summary	
+						</h3>
+
+					</p>
+					<p>
+						this value inside a regular function is dynamic and depends on how the function is invoked. But this inside the arrow function is bound lexically and equals to this of the outer function. Fat arrow methods always bind this a value to the class instance.
+
+					</p>
+					<p>
+
+
+					</p>
+				</div>
+
+				<div class="ans-3 my-4 mt-4 pt-3 bgcolor">
+
+
+					<p>
+						<h2>
+							3 .why do we use template string in javascript?
+						</h2>
+					</p>
+					<p>
+						JavaScript has never had an elegant way of handling string until the launch of ES6. ES6 introduces something know as template literals, which enable JavaScript to handle multiples lines of strings more efficiently and elegantly.
+					</p>
+					<p>
+						<h4>
+							Syntax For Template Literals
+						</h4>
+						Template literals do not intend to add additional functionality to the existing JavaScript stings but try to solve the problem in a new way. Hence, the introduction of the new syntax. Instead of using single quotes or double quotes, you can delimit strings using backticks (`).
+
+
+						// This is how strings were declared pre ES6
+						var earlierStrings = 'How strings were declared pre ES6';
+
+						// Declaring strings using template literals in ES6
+						let templateLiterals = `How strings can be declared post ES6`;
+
+						console.log(typeof earlierStrings); // "string"
+						console.log(typeof templateLiterals); // "string"
+						
+					</p>
+					<p>
+						<h4> 
+							Template Literals Are An Answer To Multiline Strings In JavaScript
+						</h4>
+						Multiline strings have always been a problem pre ES6 because the strings were declared using double quotes and single quotes. This was a problem because when you are declaring strings using double quotes or single quotes, the stings must completely be contained in a single line. Let’s look at how developers used to insert multiple lines of HTML in your JavaScript code to understand how template literals can be a boom.
+
+
+						var profile = '' +
+						'    <div class="profile">\n' +
+						'\n' +
+						'        <div class="name">John Doe </div>\n'
+						'\n' +
+						'        <div class="designation">Web Developer</div>\n'
+						'\n' +
+						'    </div>\n';
+
+											</p>
+											<p>
+												You can certainly see the multiple lines of concatenation and each string being contained to a single line single it has been declared using single quotes. This can be simplified using template literals using the following syntax.
+
+
+						let profile = `
+						<div class="profile">
+
+						<div class="name">John Doe </div>
+
+						<div class="designation">Web Developer</div>
+
+						</div>`.trim();
+
+						With template literals, it’s super clean and easy. The trim function has been used to get rid of the empty space before the div tag and is not mandatory.
+											</p>
+											<p>
+												<h4>
+													Populating data dynamically using template literal substitutions
+
+												</h4>
+												Template literals are not just a fancy way of declaring strings in ES6. The real power of template literals can be understood using the substitutions. Using substitutions you can dynamically populate data within the strings declared using template literals much like you would be able to do using a templating engine. Let’s look at the following example:
+
+												let data = {
+						name: 'John Doe',
+						designation: 'Web Developer'
+						}
+
+						let profile = `
+						<div class="profile">
+
+						<div class="name">${date.name}</div>
+
+						<div class="designation">${data.designation}</div>
+
+						</div>`.trim();
+
+											</p>
+											<p>
+												Substitutions can be used to using the following syntax ${}. If you consider the above code example you would realize that the substitutions can contain JavaScript expressions within them. Having the ability to compute JavaScript expressions within substitutions makes them really powerful and an inviting feature to ES6.
+											</p>
+											<p>
+												<h4>
+
+													Tagged Template Literals
+												</h4>
+												Template literals can have a tag preceding a declaration of the template literal itself. This tag acts like a normal javascript function that returns an array of literals as well as the substitutions within the function itself. The literals and the substitutions can then be used within the function and manipulated to return the data that is needed and that would act as the final output of the template literal. Lets first declare a template literal and then assign a tag to it.
+
+
+						let data = {
+						name: 'John',
+						age: '30'
+						}
+
+						let profile = `My name is ${data.name} and I am ${data.age} years old.`
+
+						console.log(profile); 
+						// "My name is John and I am 30 years old." 
+											</p>
+											<p>
+												This is a simple template literal. Now we can prefix the profile template literal with a new tag which will act as a function name and then we can use the literals and the substitutions within the function. Here is how you would do it.
+
+						function tagFunction(literals, ...substitutions){
+						console.log(literals);
+						// Returns: ["My name is ", " and I am ", " years old."]  
+
+						console.log(substitutions);
+						//  Returns: ["John", "30"]
+						}
+
+						let data = {
+						name: 'John',
+						age: '30'
+						}
+
+						let profile = tagFunction `My name is ${data.name} and I am ${data.age} years old.`
+
+
+											</p>
+											<p>
+												In the above example, you can see that the literals and substitutions are provided as parameters are available in the form of an array within the function. You can use this information to manipulate the data within the template literal and return a completely new string.
+
+
+						function tagFunction(literals, ...substitutions){
+						
+						return `${literals [0]}Steve${literals [1]}25${literals [2]}`
+
+						}
+						
+						let data = {
+						name: 'John',
+						age: '30'
+						}
+						
+						let profile = tagFunction `My name is ${data.name} and I am ${data.age} years old.`
+						
+						console.log(profile);
+						// "My name is Steve and I am 25 years old."
+
+											</p>
+											<p>
+												Using the tagFunction() in the above example we have been able to override the string that is returned by the template literal completely. This is just a small example but should give you a fair idea of the functionality it adds to JavaScript strings.
+
+						Previously published at https://cloudaffle.com/template-literals-in-javascript/
+					</p>
+					
+				</div>
+
+				<div class="ans-4 my-4 py-4 bgcolor">
+
+
+					<p>
+						<h2>
+
+							4 .What are the different among map ,foreach, filter and find?
+						</h2>
+						
+					</p>
+					<p>
+						<h4>
+							forEach:
+						</h4>
+
+					</p>
+					<p>
+
+						.forEach(), is used to execute the same code on every element in an array but does not change the array and it returns undefined.
+
+						Example:
+						In the example below we would use .forEach() to iterate over an array of food and log that we would want to eat each of them.
+
+						let food = ['mango','rice','pepper','pear'];
+						food.forEach(function(foodItem){ console.log('I want to eat '+foodItem);
+						});
+						Running this on your console;
+
+						forEach result
+					</p>
+					<p>
+
+						<h4>
+
+							.map():
+						</h4>
+					</p>
+					<p>
+						.map() executes the same code on every element in an array and returns a new array with the updated elements.
+
+						Example:
+						In the example below we would use .map to iterate over the elements of the cost array and divide each element by 10, then assign our new array containing the new cost to the variable newCost.
+
+						let cost = [100,400,300,700];
+						let newCost = cost.map(function(costItem){ return costItem / 10;
+						});
+						console.log(newCost);
+						Running this on your console;
+
+						map result
+
+					</p>
+					<p>
+						<h4>
+							.filter():
+						</h4>
+
+					</p>
+					<p>
+
+						.filter() checks every element in an array to see if it meets a certain criteria and returns a new array with the elements that return truthy for the criteria.
+
+						Example:
+						In the example below we would use .filter to return values that are less than 200.
+
+						let cost = [100,400,50,40,700];
+						let smallCost = cost.filter(function(costItem){ return costItem < 200
+						});
+						console.log(smallCost);
+						Running this on your console;
+
+						filter result
+					</p>
+					<p>
+
+						<h4>	
+							.Find
+						</h4>
+					</p>
+					<p>
+						What is difference between filter and find?
+						nts while find() method search through all the child elements only
+
+					</p>
+					<p>
+
+						<h3>
+
+							Thanks You Very Much!!!
+						</h3>
+					</p>
+				</div>
+			</section>
+		</main>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+	</body>
+</html>
